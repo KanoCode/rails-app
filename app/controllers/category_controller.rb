@@ -23,6 +23,12 @@ class CategoryController < ApplicationController
     end
   end
 
+  # def destroy
+  #   food = Food.find(params[:id])
+  #   food.destroy
+  #   redirect_to foods_path
+  # end
+
   private
 
   def category_params
