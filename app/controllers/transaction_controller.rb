@@ -1,8 +1,4 @@
 class TransactionController < ApplicationController
-  before_action :authenticate_user!
-    before_action :configure_permitted_parameters, if: :devise_controller?
-
-  
   def index
     @transactions = Payment.all
   end
@@ -14,22 +10,21 @@ class TransactionController < ApplicationController
 
   def create
     @transaction = Payment.new(transaction_params)    
-    @transaction.user_id = current_user.id
+    @transaction.user_id = 1
     #reference to category
     @transaction.category_ids = params[:payment][:category_id]
     if @transaction.save
-      redirect_to category_path(@transaction.category_ids[0])
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # def destroy
-  #   food = Food.find(params[:id])
-  #   food.destroy
-  #   redirect_to foods_path
-  # end
-
+  def destroy
+    transaction_item = Payment.find(params[:id])
+    transaction_item.destroy
+    redirect_to category_path(params[:id])
+  end
   private
 
   def transaction_params

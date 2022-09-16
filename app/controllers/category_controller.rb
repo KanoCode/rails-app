@@ -1,8 +1,4 @@
 class CategoryController < ApplicationController
-
-  before_action :authenticate_user!
- 
-
   def index
     @categories = Category.all
   end
@@ -18,7 +14,7 @@ class CategoryController < ApplicationController
 
   def create
     @category = Category.new(category_params)    
-    @category.user_id = current_user.id
+    @category.user_id = 1
     
     if @category.save
       redirect_to root_path

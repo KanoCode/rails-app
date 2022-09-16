@@ -1,35 +1,12 @@
-  <div class="container-fluid category_nav p-3 justify-content-between d-flex">
-   
-  
-    <%= link_to 'back',root_path,class:"btn btn-light" %>
-  
+<h1> Total expenses for this category is $ <%=@category.payments.sum(:amount) %></h1>
 
-      <h2> Transactions </h2>
 
-</div>
+<ul> 
+    <% @category.payments.each do |transaction|%>
+    <li> <%= transaction.name %>,  <%= transaction.amount %>    </li>
+    <%end%>
 
-<div class="container-fluid">
-
-<ul class="my-4  list-group categories">
-    <div class="d-flex justify-content-between m-auto">
-    <%= image_tag(@category.icon, style:" width : 20%; text-decoration: none;") %>
-   <p class="mx-3 p-3 "><%=@category.name%> <p> <h4 class="mx-2 py-3"> $<%=@category.payments.sum(:amount) %></h4>
-   </div>
-<li class="list-group-item"> 
-        <ul>
-
-            <% @category.payments.each do |transaction|%>
-            <li> <%= transaction.name %>,  <%= transaction.amount %>      </li>
-            <%end%>
-        </ul>
-    </li>
 </ul>
 
 
-
-
-<button class="add-category p-3">
-<%= link_to "add a new transaction",new_transaction_path, class:"btn"%>
-</button>
-
-</div>
+<%= link_to "add a new transaction",new_transaction_path, class:"btn btn-secondary"%>
