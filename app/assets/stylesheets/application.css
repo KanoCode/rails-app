@@ -14,7 +14,7 @@
  *= require_self
  */
 
- * {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -29,6 +29,7 @@ nav,
 .order {
   width: 100%;
 }
+
 body {
   background: #f0f0f0;
   width: 100%;
@@ -53,41 +54,37 @@ a {
 
 .add-category {
   background-color: #60b625;
-  width: 100%;
-bottom: 0;
   border: none;
   position: absolute;
-width: 100%;
+  width: 100%;
   bottom: 4px;
 }
+
 .add-category a {
   text-decoration: none;
   border: solid;
   color: white;
-
 }
 
 .categories {
   list-style: none;
 }
 
-
-.addbtn{
+.addbtn {
   border: solid;
 }
 
-.splash-page{
+.splash-page {
   height: 100vh;
 }
 
-.splash-actions{
+.splash-actions {
   position: absolute;
-width: 100%;
+  width: 100%;
   bottom: 4px;
 }
 
-.splash-text{
+.splash-text {
   position: relative;
-  top:40%;
+  top: 40%;
 }
-
