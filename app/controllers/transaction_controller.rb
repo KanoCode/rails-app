@@ -4,14 +4,13 @@ class TransactionController < ApplicationController
   end
 
   def new
-    @payment = Payment.new  
+    @payment = Payment.new
   end
 
-
   def create
-    @transaction = Payment.new(transaction_params)    
+    @transaction = Payment.new(transaction_params)
     @transaction.user_id = 1
-    #reference to category
+    # reference to category
     @transaction.category_ids = params[:payment][:category_id]
     if @transaction.save
       redirect_to root_path
@@ -21,15 +20,14 @@ class TransactionController < ApplicationController
   end
 
   def destroy
-    transaction_item = Payment.find(params[:id])
-    transaction_item.destroy
-    redirect_to category_path(params[:id])
+    payment = Payment.find(params[:id])
+    payment.destroy
+    redirect_to root_path
   end
+
   private
 
   def transaction_params
     params.require(:payment).permit(:name, :amount)
   end
-
-
 end
