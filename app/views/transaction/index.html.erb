@@ -1,0 +1,8 @@
+<h3>Total expenses for this category  </h3>
+
+<ul>
+<% @transactions.each do | transaction | %>
+
+    <li> <%= transaction.name %> </li>
+<% end %>
+</ul>

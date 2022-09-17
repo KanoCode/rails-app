@@ -1,31 +1,22 @@
-  <div class="container-fluid category_nav p-3 justify-content-between d-flex">
-   
-  
-    <%= link_to 'back',root_path,class:"btn btn-light" %>
-  
 
-      <h2> Add transaction </h2>
-
-</div>
-
-
+<<<<<<< HEAD
 <div class=" d-flex flex-column align-items-center">
+=======
+<div class="container-fluid w-50 d-flex flex-column align-items-center">
+  <h1 class="mb-5">Add Transaction</h1>
+>>>>>>> dev
   <%= form_with model: @payment, url: transaction_index_path, method: :post do |form| %>
      <div>
         <%= form.label :name, class: "form-label" %><br>
         <%= form.text_field :name,  class:"form-control" %>
      </div>
 
-      <%= form.select :category_id, Category.order(:name).where(user_id:current_user.id).pluck(:name, :id), {}, {:multiple => true, required:true, class: "form-select mb-3"} %>
+      <%= form.select :category_id, Category.order(:name).where(user_id:1).pluck(:name, :id), {}, {:multiple => true, required:true, class: "form-select mb-3"} %>
   <div>
     <%= form.label :amount, class:"form-label" %><br>
     <%= form.number_field :amount, class:"form-control" %>
   </div>   
-
-  <div class="actions login text-center py-1 my-2">
-    <%= form.submit "Add Transaction",class:"btn text-light " %>
-  </div>
-    
+    <%= form.submit 'Add Transaction', class: "btn" %>
   <% end %>
 </div>
 
